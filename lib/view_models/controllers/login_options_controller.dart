@@ -2,11 +2,9 @@
 
 import 'package:get/get.dart';
 
-class LoginOptionsController extends GetxController {
-  // Add any state variables needed for the LoginOptionsScreen
-  // For example:
-  // final RxBool isLoading = false.obs;
+import '../../res/routes/routes_name.dart';
 
+class LoginOptionsViewModel extends GetxController {
   // Add methods to handle button clicks or any other actions in the LoginOptionsScreen
 
   void chooseYourPlan() {
@@ -18,18 +16,18 @@ class LoginOptionsController extends GetxController {
   void signIn() {
     // Implement the logic to handle the "Sign In" button click
     // For example, you can navigate to the sign-in screen using Get.to():
-    Get.toNamed('login');
+    Get.toNamed(RouteName.signInView);
   }
 
   void productKey() {
     // Implement the logic to handle the "Sign In" button click
     // For example, you can navigate to the sign-in screen using Get.to():
-    Get.offNamed('productKey');
+    Get.offNamed(RouteName.productKeyView);
   }
 
   void partnerCode() {
     // Implement the logic to handle the "Sign In" button click
     // For example, you can navigate to the sign-in screen using Get.to():
-    Get.offNamed('partnerCode');
+    Get.offNamed(RouteName.partnerCodeView);
   }
 }

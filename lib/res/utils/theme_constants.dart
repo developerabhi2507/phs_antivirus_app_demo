@@ -89,37 +89,37 @@ class ThemeConstants {
         color: AppColor.text4Light, decoration: TextDecoration.underline),
   );
 
-  // Button Styles
-  ElevatedButtonThemeData elevatedStyle1 = ElevatedButtonThemeData(
-      style: ButtonStyle(
-    backgroundColor: const MaterialStatePropertyAll(AppColor.buttonBg1Light),
-    overlayColor: const MaterialStatePropertyAll(AppColor.buttonOverLayLight),
-    foregroundColor: const MaterialStatePropertyAll(AppColor.buttonFg1Light),
-    shape: MaterialStatePropertyAll(
-        RoundedRectangleBorder(borderRadius: defaultBorderRadius)),
-    elevation: const MaterialStatePropertyAll(5),
-    textStyle: const MaterialStatePropertyAll(buttonStyle),
-  ));
+  // // Button Styles
+  // ElevatedButtonThemeData elevatedStyle1 = ElevatedButtonThemeData(
+  //     style: ButtonStyle(
+  //   backgroundColor: const MaterialStatePropertyAll(AppColor.buttonBg1Light),
+  //   overlayColor: const MaterialStatePropertyAll(AppColor.buttonOverLayLight),
+  //   foregroundColor: const MaterialStatePropertyAll(AppColor.buttonFg1Light),
+  //   shape: MaterialStatePropertyAll(
+  //       RoundedRectangleBorder(borderRadius: defaultBorderRadius)),
+  //   elevation: const MaterialStatePropertyAll(5),
+  //   textStyle: const MaterialStatePropertyAll(buttonStyle),
+  // ));
 
-  ButtonStyle elevatedStyle2 = ButtonStyle(
-    backgroundColor: const MaterialStatePropertyAll(AppColor.buttonBg2Light),
-    foregroundColor: const MaterialStatePropertyAll(AppColor.buttonFg2Light),
-    overlayColor: const MaterialStatePropertyAll(AppColor.buttonOverLayLight),
-    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-        borderRadius: defaultBorderRadius,
-        side: const BorderSide(color: AppColor.border1))),
-    elevation: const MaterialStatePropertyAll(5),
-    textStyle: const MaterialStatePropertyAll(buttonStyle),
-  );
+  // ButtonStyle elevatedStyle2 = ButtonStyle(
+  //   backgroundColor: const MaterialStatePropertyAll(AppColor.buttonBg2Light),
+  //   foregroundColor: const MaterialStatePropertyAll(AppColor.buttonFg2Light),
+  //   overlayColor: const MaterialStatePropertyAll(AppColor.buttonOverLayLight),
+  //   shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+  //       borderRadius: defaultBorderRadius,
+  //       side: const BorderSide(color: AppColor.border1))),
+  //   elevation: const MaterialStatePropertyAll(5),
+  //   textStyle: const MaterialStatePropertyAll(buttonStyle),
+  // );
 
-  TextButtonThemeData textButtonStyle1 = const TextButtonThemeData(
-      style: ButtonStyle(
-          foregroundColor: MaterialStatePropertyAll(AppColor.buttonFg3Light),
-          textStyle: MaterialStatePropertyAll(buttonStyle)));
+  // TextButtonThemeData textButtonStyle1 = const TextButtonThemeData(
+  //     style: ButtonStyle(
+  //         foregroundColor: MaterialStatePropertyAll(AppColor.buttonFg3Light),
+  //         textStyle: MaterialStatePropertyAll(buttonStyle)));
 
-  ButtonStyle textButtonStyle2 = const ButtonStyle(
-      foregroundColor: MaterialStatePropertyAll(AppColor.buttonFg4Light),
-      textStyle: MaterialStatePropertyAll(buttonStyle));
+  // ButtonStyle textButtonStyle2 = const ButtonStyle(
+  //     foregroundColor: MaterialStatePropertyAll(AppColor.buttonFg4Light),
+  //     textStyle: MaterialStatePropertyAll(buttonStyle));
 
   BottomSheetThemeData bottomSheetStyle = BottomSheetThemeData(
     backgroundColor: AppColor.bg2Light,
@@ -159,37 +159,37 @@ class ThemeConstants {
         color: AppColor.text3Dark, decoration: TextDecoration.underline),
   );
 
-  // Button Styles
-  ElevatedButtonThemeData elevatedStyle1Dark = ElevatedButtonThemeData(
-      style: ButtonStyle(
-    backgroundColor: const MaterialStatePropertyAll(AppColor.buttonBg1Dark),
-    overlayColor: const MaterialStatePropertyAll(AppColor.buttonOverLayDark),
-    foregroundColor: const MaterialStatePropertyAll(AppColor.buttonFg1Dark),
-    shape: MaterialStatePropertyAll(
-        RoundedRectangleBorder(borderRadius: defaultBorderRadius)),
-    elevation: const MaterialStatePropertyAll(5),
-    textStyle: const MaterialStatePropertyAll(buttonStyle),
-  ));
+  // // Button Styles
+  // ElevatedButtonThemeData elevatedStyle1Dark = ElevatedButtonThemeData(
+  //     style: ButtonStyle(
+  //   backgroundColor: const MaterialStatePropertyAll(AppColor.buttonBg1Dark),
+  //   overlayColor: const MaterialStatePropertyAll(AppColor.buttonOverLayDark),
+  //   foregroundColor: const MaterialStatePropertyAll(AppColor.buttonFg1Dark),
+  //   shape: MaterialStatePropertyAll(
+  //       RoundedRectangleBorder(borderRadius: defaultBorderRadius)),
+  //   elevation: const MaterialStatePropertyAll(5),
+  //   textStyle: const MaterialStatePropertyAll(buttonStyle),
+  // ));
 
-  ButtonStyle elevatedStyle2Dark = ButtonStyle(
-    backgroundColor: const MaterialStatePropertyAll(AppColor.buttonBg2Dark),
-    foregroundColor: const MaterialStatePropertyAll(AppColor.buttonFg2Dark),
-    overlayColor: const MaterialStatePropertyAll(AppColor.buttonOverLayDark),
-    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-        borderRadius: defaultBorderRadius,
-        side: const BorderSide(color: AppColor.border1))),
-    elevation: const MaterialStatePropertyAll(5),
-    textStyle: const MaterialStatePropertyAll(buttonStyle),
-  );
+  // ButtonStyle elevatedStyle2Dark = ButtonStyle(
+  //   backgroundColor: const MaterialStatePropertyAll(AppColor.buttonBg2Dark),
+  //   foregroundColor: const MaterialStatePropertyAll(AppColor.buttonFg2Dark),
+  //   overlayColor: const MaterialStatePropertyAll(AppColor.buttonOverLayDark),
+  //   shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+  //       borderRadius: defaultBorderRadius,
+  //       side: const BorderSide(color: AppColor.border1))),
+  //   elevation: const MaterialStatePropertyAll(5),
+  //   textStyle: const MaterialStatePropertyAll(buttonStyle),
+  // );
 
-  TextButtonThemeData textButtonStyle1Dark = const TextButtonThemeData(
-      style: ButtonStyle(
-          foregroundColor: MaterialStatePropertyAll(AppColor.buttonFg3Dark),
-          textStyle: MaterialStatePropertyAll(buttonStyle)));
+  // TextButtonThemeData textButtonStyle1Dark = const TextButtonThemeData(
+  //     style: ButtonStyle(
+  //         foregroundColor: MaterialStatePropertyAll(AppColor.buttonFg3Dark),
+  //         textStyle: MaterialStatePropertyAll(buttonStyle)));
 
-  ButtonStyle textButtonStyle2Dark = const ButtonStyle(
-      foregroundColor: MaterialStatePropertyAll(AppColor.buttonFg4Dark),
-      textStyle: MaterialStatePropertyAll(buttonStyle));
+  // ButtonStyle textButtonStyle2Dark = const ButtonStyle(
+  //     foregroundColor: MaterialStatePropertyAll(AppColor.buttonFg4Dark),
+  //     textStyle: MaterialStatePropertyAll(buttonStyle));
 
   BottomSheetThemeData bottomSheetStyleDark = BottomSheetThemeData(
     backgroundColor: AppColor.bg3Dark,

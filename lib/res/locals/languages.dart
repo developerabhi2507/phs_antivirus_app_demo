@@ -60,7 +60,7 @@ class Languages extends Translations {
           'sign_in_text': 'with your service provider',
           'forgot_username': 'Forgot username?',
           'one_time_passwordButton': 'Request one-time password',
-          'new-user_text': 'New user?',
+          'new_user_text': 'New user?',
           'create_account': 'Create an account.',
           'remember_me': 'Remember me on this device',
           'different_account': 'Sign in to a different account',
@@ -91,8 +91,11 @@ class Languages extends Translations {
           'done_button_label': 'Done',
 
           // Exceptions
-          'internet_exception':
-              'Your partner code was given to you by your service provider.'
+          'internet_exception': 'No Internet.',
+          'request_time_out_exception': 'Request time out.',
+          'server_exception': 'Internal server error.',
+          'invalid_url_exception': 'Invalid Url.',
+          'exception_button_text': 'Retry',
         },
 
         //Hindi language

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class SplashServices {
   void isFetchDetails() {
-    Timer(const Duration(seconds: 0),
+    Timer(const Duration(seconds: 5),
         () => Get.toNamed(RouteName.fetchDetailsView));
   }
 }

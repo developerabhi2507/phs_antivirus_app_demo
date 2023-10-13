@@ -22,8 +22,6 @@ class ThemeService {
   final lightTheme = ThemeData.light().copyWith(
     scaffoldBackgroundColor: AppColor.bg2Light,
     hintColor: AppColor.text3Light,
-    elevatedButtonTheme: ThemeConstants().elevatedStyle1,
-    textButtonTheme: ThemeConstants().textButtonStyle1,
     textTheme: ThemeConstants().textTheme,
     bottomSheetTheme: ThemeConstants().bottomSheetStyle,
     iconTheme: ThemeConstants().iconStyle,
@@ -43,8 +41,6 @@ class ThemeService {
   final darkTheme = ThemeData.dark().copyWith(
     scaffoldBackgroundColor: AppColor.bg2Dark,
     hintColor: AppColor.text3Dark,
-    elevatedButtonTheme: ThemeConstants().elevatedStyle1Dark,
-    textButtonTheme: ThemeConstants().textButtonStyle1Dark,
     textTheme: ThemeConstants().textThemeDark,
     bottomSheetTheme: ThemeConstants().bottomSheetStyleDark,
     iconTheme: ThemeConstants().iconStyleDark,

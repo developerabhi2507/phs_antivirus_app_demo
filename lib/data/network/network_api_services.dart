@@ -40,6 +40,9 @@ class NetworkApiServices extends BaseApiServices {
     } on RequestTimeOut {
       throw RequestTimeOut('');
     }
+    if (kDebugMode) {
+      print(responseJson);
+    }
     return responseJson;
   }
 
@@ -49,7 +52,8 @@ class NetworkApiServices extends BaseApiServices {
         dynamic responseJson = jsonDecode(response.data);
         return responseJson;
       case 400:
-        throw InvalidUrlEception('');
+        dynamic responseJson = jsonDecode(response.data);
+        return responseJson;
       default:
         throw FetchDataException(
             'Error occured while communicating with server ${response.statusCode}');

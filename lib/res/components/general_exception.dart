@@ -1,26 +1,31 @@
+import 'package:antivirus_app_demo1/res/components/round_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../colors/app_color.dart';
 
-class GeneralExceptionWidget extends StatefulWidget {
-  const GeneralExceptionWidget({super.key});
+class GeneralExceptionWidget extends StatelessWidget {
+  final VoidCallback onPress;
+  const GeneralExceptionWidget({super.key, required this.onPress});
 
-  @override
-  State<GeneralExceptionWidget> createState() => _GeneralExceptionWidgetState();
-}
-
-class _GeneralExceptionWidgetState extends State<GeneralExceptionWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          Icon(
+          const Icon(
             Icons.cloud_off,
             color: AppColor.blackColor,
           ),
-          Text('data')
+          SizedBox(
+            height: Get.height - (Get.height - 20),
+          ),
+          Text('internet_exception'.tr),
+          SizedBox(
+            height: Get.height - (Get.height - 20),
+          ),
+          RoundButton(title: 'exception_button_text'.tr, onPress: onPress)
         ],
       ),
     );

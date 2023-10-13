@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../colors/app_color.dart';
+import 'round_button.dart';
 
-class InternetExceptionWidget extends StatefulWidget {
-  const InternetExceptionWidget({super.key});
+class InternetExceptionWidget extends StatelessWidget {
+  final VoidCallback onPress;
+  const InternetExceptionWidget({super.key, required this.onPress});
 
-  @override
-  State<InternetExceptionWidget> createState() =>
-      _InternetExceptionWidgetState();
-}
-
-class _InternetExceptionWidgetState extends State<InternetExceptionWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          Icon(
+          const Icon(
             Icons.cloud_off,
             color: AppColor.blackColor,
           ),
-          Text('data')
+          SizedBox(
+            height: Get.height - (Get.height - 20),
+          ),
+          Text('internet_exception'.tr),
+          SizedBox(
+            height: Get.height - (Get.height - 20),
+          ),
+          RoundButton(title: 'exception_button_text'.tr, onPress: onPress)
         ],
       ),
     );

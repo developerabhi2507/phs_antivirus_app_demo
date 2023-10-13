@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'res/locals/languages.dart';
 import 'res/routes/routes.dart';
+import 'res/utils/theme_service.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +20,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Antivirus App',
       themeMode: ThemeMode.system,
-      // theme: ThemeService().lightTheme,
-      // darkTheme: ThemeService().darkTheme,
+      theme: ThemeService().lightTheme,
+      darkTheme: ThemeService().darkTheme,
       translations: Languages(),
       locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),

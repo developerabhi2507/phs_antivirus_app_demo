@@ -1,3 +1,4 @@
+import 'package:antivirus_app_demo1/res/components/text_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,10 +9,10 @@ import '../../res/components/elevated_container.dart';
 import '../../res/components/round_button.dart';
 import '../../res/utils/theme_constants.dart';
 import '../../res/utils/utils.dart';
-import '../../view_models/controllers/login_controller.dart';
+import '../../view_models/controllers/login/login_view_model.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignInView extends StatelessWidget {
+  const SignInView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -161,15 +162,21 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              RoundButton(
-                                  width: Get.width - (Get.width - 300),
-                                  buttonColor: AppColor.buttonBg2Light,
-                                  textColor: AppColor.buttonFg2Light,
-                                  borderColor: AppColor.border2,
-                                  title: 'sign_in_button'.tr,
-                                  onPress: () {
-                                    if (_formKey.currentState!.validate()) {}
-                                  }),
+                              Obx(
+                                () => RoundButton(
+                                    width: Get.width - (Get.width - 300),
+                                    buttonColor: AppColor.buttonBg2Light,
+                                    textColor: AppColor.buttonFg2Light,
+                                    borderColor: AppColor.border2,
+                                    title: 'sign_in_button'.tr,
+                                    loading: controller.loading.value,
+                                    onPress: () {
+                                      if (_formKey.currentState!.validate()) {
+                                        controller.loginApi();
+                                        controller.onSignInButtonPressed();
+                                      }
+                                    }),
+                              ),
                               // Container(
                               //   width: double.infinity,
                               //   height: Get.height - (Get.height - 50),
@@ -225,17 +232,12 @@ class LoginScreen extends StatelessWidget {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      TextButton(
-                                        onPressed:
-                                            controller.onSignInButtonPressed,
-                                        style:
-                                            ThemeConstants().textButtonStyle2,
-                                        child: Text(
-                                          'sign_in_text_button'.tr,
-                                        ),
-                                      ),
+                                      CustomTextButton(
+                                          title: 'sign_in_text_button'.tr,
+                                          onPress:
+                                              controller.onSignInButtonPressed),
                                       Text(
-                                        StringConstants.signInText,
+                                        'sign_in_text'.tr,
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyLarge,
@@ -243,23 +245,15 @@ class LoginScreen extends StatelessWidget {
                                     ],
                                   ),
                                   // SizedBox(height: Get.height - (Get.height - 30)),
-                                  TextButton(
-                                    onPressed: controller
-                                        .onForgotUsernameButtonPressed,
-                                    style: ThemeConstants().textButtonStyle2,
-                                    child: const Text(
-                                      StringConstants.forgotUsername,
-                                    ),
-                                  ),
+                                  CustomTextButton(
+                                      title: 'forgot_username'.tr,
+                                      onPress: controller
+                                          .onForgotUsernameButtonPressed),
                                   // SizedBox(height: Get.height - (Get.height - 12)),
-                                  TextButton(
-                                    onPressed: controller
-                                        .onRequestOneTimePasswordButtonPressed,
-                                    style: ThemeConstants().textButtonStyle2,
-                                    child: const Text(
-                                      StringConstants.oneTimePasswordButton,
-                                    ),
-                                  ),
+                                  CustomTextButton(
+                                      title: 'one_time_passwordButton'.tr,
+                                      onPress: controller
+                                          .onRequestOneTimePasswordButtonPressed),
                                   // SizedBox(height: Get.height - (Get.height - 12)),
                                   if (!controller.isButtonPressed.value)
                                     Row(
@@ -268,31 +262,22 @@ class LoginScreen extends StatelessWidget {
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Text(
-                                          StringConstants.newUserText,
+                                          'new_user_text'.tr,
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyLarge,
                                         ),
-                                        TextButton(
-                                          onPressed: controller
-                                              .onCreateAccountButtonPressed,
-                                          style:
-                                              ThemeConstants().textButtonStyle2,
-                                          child: const Text(
-                                            StringConstants.createAccount,
-                                          ),
-                                        ),
+                                        CustomTextButton(
+                                            title: 'create_account'.tr,
+                                            onPress: controller
+                                                .onCreateAccountButtonPressed),
                                       ],
                                     ),
                                   if (controller.isButtonPressed.value)
-                                    TextButton(
-                                      onPressed: controller
-                                          .onRequestOneTimePasswordButtonPressed,
-                                      style: ThemeConstants().textButtonStyle2,
-                                      child: const Text(
-                                        StringConstants.differentAccount,
-                                      ),
-                                    ),
+                                    CustomTextButton(
+                                        title: 'different_account'.tr,
+                                        onPress:
+                                            controller.onSignInWithDifferentAcc)
                                 ],
                               ),
                             ],
@@ -316,28 +301,28 @@ class LoginScreen extends StatelessWidget {
                                     style:
                                         Theme.of(context).textTheme.bodyMedium,
                                     children: <TextSpan>[
-                                      const TextSpan(
-                                        text: StringConstants.privacyPolicy5,
+                                      TextSpan(
+                                        text: 'privacy_policy5'.tr,
                                       ),
                                       _createGestureTextSpan(
-                                          StringConstants.privacyPolicy6,
+                                          'privacy_policy6'.tr,
                                           Theme.of(context)
                                               .textTheme
                                               .displayMedium, () {
                                         devtools.log('tap on Privacy Policy');
                                       }),
-                                      const TextSpan(
-                                        text: StringConstants.privacyPolicy7,
+                                      TextSpan(
+                                        text: 'privacy_policy7'.tr,
                                       ),
                                       _createGestureTextSpan(
-                                          StringConstants.privacyPolicy8,
+                                          'privacy_policy8'.tr,
                                           Theme.of(context)
                                               .textTheme
                                               .displayMedium, () {
                                         devtools.log('tap on Terms of Service');
                                       }),
-                                      const TextSpan(
-                                        text: StringConstants.privacyPolicy9,
+                                      TextSpan(
+                                        text: 'privacy_policy9'.tr,
                                       ),
                                     ]),
                               ),
