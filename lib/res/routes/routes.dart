@@ -1,6 +1,8 @@
 import 'package:antivirus_app_demo1/view/fetching_product_details.dart';
 import 'package:antivirus_app_demo1/view/login/login_view.dart';
 import 'package:antivirus_app_demo1/view/login_options/login_options_view.dart';
+import 'package:antivirus_app_demo1/view/redeem_subsription/partner_code/partner_code_view.dart';
+import 'package:antivirus_app_demo1/view/redeem_subsription/product_key/product_key_view.dart';
 import 'package:get/get.dart';
 
 import '../../view/splash_screen.dart';
@@ -26,12 +28,12 @@ class AppRoutes {
             transition: Transition.leftToRightWithFade),
         GetPage(
             name: RouteName.productKeyView,
-            page: () => const LoginOptionsView(),
+            page: () => const ProductKeyView(),
             transitionDuration: const Duration(milliseconds: 100),
             transition: Transition.leftToRightWithFade),
         GetPage(
             name: RouteName.partnerCodeView,
-            page: () => const LoginOptionsView(),
+            page: () => const PartnerCodeView(),
             transitionDuration: const Duration(milliseconds: 100),
             transition: Transition.leftToRightWithFade),
         GetPage(

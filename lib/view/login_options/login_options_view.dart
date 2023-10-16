@@ -1,6 +1,6 @@
 import 'package:antivirus_app_demo1/res/colors/app_color.dart';
-import 'package:antivirus_app_demo1/res/components/round_button.dart';
-import 'package:antivirus_app_demo1/res/components/text_button.dart';
+import 'package:antivirus_app_demo1/res/components/round_button_widget.dart';
+import 'package:antivirus_app_demo1/res/components/text_button_widget.dart';
 import 'package:antivirus_app_demo1/view/login_options/widgets/background_image.dart';
 import 'package:antivirus_app_demo1/view/login_options/widgets/positioned_widget.dart';
 import 'package:antivirus_app_demo1/view/login_options/widgets/rich_text_widget.dart';
@@ -64,7 +64,6 @@ class LoginOptionsView extends StatelessWidget {
                   return const RedeemBottomSheet();
                 },
               );
-              // _showRedeemSubscription(context);
             },
           ),
         ],

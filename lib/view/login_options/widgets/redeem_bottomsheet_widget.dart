@@ -1,5 +1,5 @@
 import 'package:antivirus_app_demo1/res/colors/app_color.dart';
-import 'package:antivirus_app_demo1/res/components/text_button.dart';
+import 'package:antivirus_app_demo1/res/components/text_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,6 +31,7 @@ class RedeemBottomSheet extends StatelessWidget {
           CustomTextButton(
             title: 'product_key_button'.tr,
             onPress: () => loginOptionsViewModel.productKey(),
+            textAlignment: Alignment.centerLeft,
             textColor: Get.isDarkMode
                 ? AppColor.buttonFg4Dark
                 : AppColor.buttonFg4Light,
@@ -38,6 +39,7 @@ class RedeemBottomSheet extends StatelessWidget {
           CustomTextButton(
             title: 'partner_code_button'.tr,
             onPress: () => loginOptionsViewModel.partnerCode(),
+            textAlignment: Alignment.centerLeft,
             textColor: Get.isDarkMode
                 ? AppColor.buttonFg4Dark
                 : AppColor.buttonFg4Light,

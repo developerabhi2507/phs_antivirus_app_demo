@@ -1,12 +1,12 @@
-import 'package:antivirus_app_demo1/res/components/text_button.dart';
+import 'package:antivirus_app_demo1/res/components/text_button_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:developer' as devtools;
 
 import '../../res/colors/app_color.dart';
-import '../../res/components/elevated_container.dart';
-import '../../res/components/round_button.dart';
+import '../../res/components/elevated_container_widget.dart';
+import '../../res/components/round_button_widget.dart';
 import '../../res/utils/theme_constants.dart';
 import '../../res/utils/utils.dart';
 import '../../view_models/controllers/login/login_view_model.dart';

@@ -37,7 +37,7 @@ class Languages extends Translations {
 
           //Product Key Screen
           'product_key_title': 'Enter Your Product Key',
-          'product_key_essage':
+          'product_key_message':
               'Your Product Key is the 25-character code that you received with your purchase.',
           'product_key_hint': 'Product Key',
           'verify_button': 'Verify',
@@ -96,6 +96,9 @@ class Languages extends Translations {
           'server_exception': 'Internal server error.',
           'invalid_url_exception': 'Invalid Url.',
           'exception_button_text': 'Retry',
+          'permission_denied_titile': 'Permission Denied',
+          'camera_permission': 'You have denied the camera permission.',
+          'permission_allow': 'Allow',
         },
 
         //Hindi language
