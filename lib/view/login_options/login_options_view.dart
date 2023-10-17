@@ -11,12 +11,18 @@ import 'package:get/get.dart';
 
 import 'widgets/redeem_bottomsheet_widget.dart';
 
-class LoginOptionsView extends StatelessWidget {
+class LoginOptionsView extends StatefulWidget {
   const LoginOptionsView({super.key});
 
   @override
+  State<LoginOptionsView> createState() => _LoginOptionsViewState();
+}
+
+class _LoginOptionsViewState extends State<LoginOptionsView> {
+  final loginOptionsViewModel = Get.put(LoginOptionsViewModel());
+
+  @override
   Widget build(BuildContext context) {
-    final loginOptionsViewModel = Get.put(LoginOptionsViewModel());
     return Scaffold(
       body: Column(
         children: [
@@ -37,6 +43,9 @@ class LoginOptionsView extends StatelessWidget {
           ),
           RoundButton(
               width: Get.width - (Get.width - 300),
+              buttonColor: Theme.of(context).brightness == Brightness.dark
+                  ? AppColor.buttonBg1Dark
+                  : AppColor.buttonBg1Light,
               title: 'choose_plan_button'.tr,
               onPress: () => loginOptionsViewModel.chooseYourPlan()),
           SizedBox(

@@ -1,17 +1,18 @@
 import 'package:antivirus_app_demo1/models/login/user_model.dart';
 import 'package:antivirus_app_demo1/repository/login_repository/login_repository.dart';
+import 'package:antivirus_app_demo1/res/routes/routes_name.dart';
 import 'package:antivirus_app_demo1/res/utils/utils.dart';
 import 'package:antivirus_app_demo1/view_models/controllers/user_prefrences/user_prefrence_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
+class LoginViewModel extends GetxController {
   // Controller properties and logic go here
   final RxString appBarTitle = 'sign_in_title'.tr.obs;
   final RxString buttonText = 'continue_button'.tr.obs;
   final isButtonPressed = false.obs;
   final rememberMe = false.obs;
-  final RxBool loading = true.obs;
+  final RxBool loading = false.obs;
 
   final _api = LoginRepository();
 
@@ -47,10 +48,17 @@ class LoginController extends GetxController {
   }
 
   void onContinueButtonPressed() {
+    final formkey = GlobalKey<FormState>();
     // Implement the logic for the Continue button here
     appBarTitle.value = 'password_title'.tr;
     buttonText.value = 'sign_in_button'.tr;
     isButtonPressed.value = true;
+    loading.value = true;
+    if (formkey.currentState!.validate()) {}
+    if (!isButtonPressed.value) {
+      // loginApi();
+      Get.toNamed(RouteName.selectDevice);
+    }
     update();
   }
 

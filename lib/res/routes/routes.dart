@@ -3,6 +3,7 @@ import 'package:antivirus_app_demo1/view/login/login_view.dart';
 import 'package:antivirus_app_demo1/view/login_options/login_options_view.dart';
 import 'package:antivirus_app_demo1/view/redeem_subsription/partner_code/partner_code_view.dart';
 import 'package:antivirus_app_demo1/view/redeem_subsription/product_key/product_key_view.dart';
+import 'package:antivirus_app_demo1/view/show_devices/show_devices_with_license.dart';
 import 'package:get/get.dart';
 
 import '../../view/splash_screen.dart';
@@ -39,6 +40,11 @@ class AppRoutes {
         GetPage(
             name: RouteName.signInView,
             page: () => const SignInView(),
+            transitionDuration: const Duration(milliseconds: 100),
+            transition: Transition.leftToRightWithFade),
+        GetPage(
+            name: RouteName.selectDevice,
+            page: () => const SelectDevWithLicenseView(),
             transitionDuration: const Duration(milliseconds: 100),
             transition: Transition.leftToRightWithFade),
       ];

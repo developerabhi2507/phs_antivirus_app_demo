@@ -65,6 +65,11 @@ class Languages extends Translations {
           'remember_me': 'Remember me on this device',
           'different_account': 'Sign in to a different account',
 
+          // Select License
+          'select_license_screen_title': 'Sign in to a different account',
+          'select_license_message':
+              'You have more than one license available. Select one and then click Next',
+
           // Home Screen
           'home_screen_title': 'Antivirus Protection',
           'scan_button_label': 'Scan Now',

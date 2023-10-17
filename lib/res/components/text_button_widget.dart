@@ -9,13 +9,15 @@ class CustomTextButton extends StatelessWidget {
       required this.title,
       required this.onPress,
       this.loading = false,
-      this.textAlignment = Alignment.center});
+      this.textAlignment = Alignment.center,
+      this.textDecoration = TextDecoration.none});
 
   final bool loading;
   final String title;
   final VoidCallback onPress;
   final Color textColor;
   final Alignment textAlignment;
+  final TextDecoration textDecoration;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class CustomTextButton extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
-                      .copyWith(color: textColor),
+                      .copyWith(color: textColor, decoration: textDecoration),
                 ),
               ),
             ),

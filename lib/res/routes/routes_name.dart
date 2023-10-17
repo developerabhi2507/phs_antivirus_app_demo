@@ -6,6 +6,7 @@ class RouteName {
   static const String signInView = '/login';
   static const String productKeyView = '/productKey';
   static const String partnerCodeView = '/partnerCode';
+  static const String selectDevice = '/selectDevice';
   static const String homeView = '/home';
   static const String scanView = '/scan';
   static const String scanResultView = '/scan-result';

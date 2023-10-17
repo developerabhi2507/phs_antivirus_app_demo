@@ -1,3 +1,4 @@
+import 'package:antivirus_app_demo1/res/colors/app_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,12 @@ class RichTextWidget extends StatelessWidget {
         textAlign: TextAlign.center,
         maxLines: 3,
         text: TextSpan(
-            style: Theme.of(context).textTheme.bodySmall,
+            style: Get.isDarkMode
+                ? Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: AppColor.text1Dark)
+                : Theme.of(context).textTheme.bodySmall,
             children: <TextSpan>[
               TextSpan(
                 text: 'privacy_policy1'.tr,
