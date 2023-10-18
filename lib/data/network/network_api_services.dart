@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:antivirus_app_demo1/res/app_url/app_url.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
@@ -32,7 +33,9 @@ class NetworkApiServices extends BaseApiServices {
     dynamic responseJson;
     try {
       final response = await dio
-          .get(url, data: jsonEncode(data))
+          .post(url,
+              data: jsonEncode(data),
+              options: Options(method: 'POST', headers: AppUrl.headers))
           .timeout(const Duration(seconds: 10));
       responseJson = returnResponse(response);
     } on SocketException {

@@ -44,11 +44,11 @@ class ThemeService {
     textTheme: ThemeConstants().textThemeDark,
     bottomSheetTheme: ThemeConstants().bottomSheetStyleDark,
     iconTheme: ThemeConstants().iconStyleDark,
-    colorScheme: const ColorScheme.dark(
-      primary: Colors.teal,
-      secondary: Colors.orange,
-      // Add other dark theme colors here
-    ),
+    // colorScheme: const ColorScheme.dark(
+    //   primary: Colors.teal,
+    //   secondary: Colors.orange,
+    //   // Add other dark theme colors here
+    // ),
     // Add other dark theme configurations here
   );
 

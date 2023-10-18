@@ -10,14 +10,16 @@ class SignInWithDifferentAccWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (loginViewModel.isButtonPressed.value) {
-      return CustomTextButton(
-          title: 'different_account'.tr,
-          textDecoration: TextDecoration.underline,
-          textAlignment: Alignment.centerLeft,
-          onPress: loginViewModel.onSignInWithDifferentAcc);
-    } else {
-      return const SizedBox.shrink();
-    }
+    return Obx(() {
+      if (loginViewModel.isSignInButtonPressed.value) {
+        return CustomTextButton(
+            title: 'different_account'.tr,
+            textDecoration: TextDecoration.underline,
+            textAlignment: Alignment.centerLeft,
+            onPress: loginViewModel.onSignInWithDifferentAcc);
+      } else {
+        return const SizedBox.shrink();
+      }
+    });
   }
 }

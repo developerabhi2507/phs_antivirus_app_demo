@@ -11,33 +11,36 @@ class DividerOrTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (loginViewModel.isButtonPressed.value) {
-      return const SizedBox.shrink();
-    } else {
-      return Row(
-        children: [
-          const Expanded(
-            child: Divider(
-              color: AppColor.divider,
-              thickness: 1,
+    return Obx(() {
+      if (loginViewModel.isContinueButtonPressed.value) {
+        return Row(
+          children: [
+            SizedBox(height: Get.height - (Get.height - 28)),
+            const Expanded(
+              child: Divider(
+                color: AppColor.divider,
+                thickness: 1,
+              ),
             ),
-          ),
-          Padding(
-            padding: ThemeConstants.smallPadding,
-            child: Text('divider_text'.tr,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge!
-                    .copyWith(fontSize: 18)),
-          ),
-          const Expanded(
-            child: Divider(
-              color: AppColor.divider,
-              thickness: 1,
+            Padding(
+              padding: ThemeConstants.smallPadding,
+              child: Text('divider_text'.tr,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(fontSize: 18)),
             ),
-          ),
-        ],
-      );
-    }
+            const Expanded(
+              child: Divider(
+                color: AppColor.divider,
+                thickness: 1,
+              ),
+            ),
+          ],
+        );
+      } else {
+        return const SizedBox.shrink();
+      }
+    });
   }
 }

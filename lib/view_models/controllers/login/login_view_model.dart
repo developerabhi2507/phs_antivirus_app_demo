@@ -9,13 +9,13 @@ import 'package:get/get.dart';
 class LoginViewModel extends GetxController {
   // Controller properties and logic go here
   final RxString appBarTitle = 'sign_in_title'.tr.obs;
-  final RxString buttonText = 'continue_button'.tr.obs;
-  final isButtonPressed = false.obs;
+  final isContinueButtonPressed = true.obs;
+  final isSignInButtonPressed = false.obs;
   final rememberMe = false.obs;
-  final RxBool loading = false.obs;
+  RxBool loading = false.obs;
 
   final _api = LoginRepository();
-
+  final formkey = GlobalKey<FormState>();
   UserPrefences userPrefences = UserPrefences();
 
   final emailController = TextEditingController().obs;
@@ -25,6 +25,7 @@ class LoginViewModel extends GetxController {
   final passwordFocusNode = FocusNode().obs;
 
   void loginApi() {
+    loading.value = true;
     Map data = {
       'email': emailController.value.text,
       'password': passwordController.value.text
@@ -34,10 +35,11 @@ class LoginViewModel extends GetxController {
       if (value['error'] == 'user not found') {
         Utils.snackBar('Login', value['error']);
       } else {
-        userPrefences
-            .saveUser(UserModel.fromJson(value))
-            .then((value) {})
-            .onError((error, stackTrace) {});
+        userPrefences.saveUser(UserModel.fromJson(value)).then((value) {
+          Get.toNamed(RouteName.selectDevice);
+        }).onError((error, stackTrace) {
+          loading.value = false;
+        });
         Utils.snackBar('Login', 'Login successfully.');
       }
     }).onError((error, stackTrace) {
@@ -48,19 +50,23 @@ class LoginViewModel extends GetxController {
   }
 
   void onContinueButtonPressed() {
-    final formkey = GlobalKey<FormState>();
     // Implement the logic for the Continue button here
-    appBarTitle.value = 'password_title'.tr;
-    buttonText.value = 'sign_in_button'.tr;
-    isButtonPressed.value = true;
     loading.value = true;
-    if (formkey.currentState!.validate()) {}
-    if (!isButtonPressed.value) {
-      // loginApi();
-      Get.toNamed(RouteName.selectDevice);
+    if (loading.value) {
+      loading.value = false;
+      isContinueButtonPressed.value = false;
+      isSignInButtonPressed.value = true;
+      appBarTitle.value = 'password_title'.tr;
     }
-    update();
   }
+
+  // void onSignInButtonPressed() {
+  //   loading.value = true;
+  //   if (isSignInButtonPressed.value) {
+  //     Get.toNamed(RouteName.selectDevice);
+  //     loginApi();
+  //   }
+  // }
 
   void onRememberMeChanged(bool? value) {
     rememberMe.value = value!;
@@ -70,7 +76,7 @@ class LoginViewModel extends GetxController {
     // Implement the logic for the Google Sign-In button here
   }
 
-  void onSignInButtonPressed() {
+  void onSignInButtonWithProviderPressed() {
     // Implement the logic for the "Sign In" button here
   }
 

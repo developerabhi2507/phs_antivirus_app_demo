@@ -1,4 +1,4 @@
-import 'package:antivirus_app_demo1/res/components/text_button_widget.dart';
+import 'package:antivirus_app_demo1/view/login/widgets/continue_button_widget.dart';
 import 'package:antivirus_app_demo1/view/login/widgets/create_an_account_widget.dart';
 import 'package:antivirus_app_demo1/view/login/widgets/divider_or_widget.dart';
 import 'package:antivirus_app_demo1/view/login/widgets/forgot_password_widget.dart';
@@ -14,10 +14,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:developer' as devtools;
 
-import '../../res/colors/app_color.dart';
 import '../../res/components/elevated_container_widget.dart';
 import '../../res/utils/theme_constants.dart';
 import '../../view_models/controllers/login/login_view_model.dart';
+import 'widgets/sign_in_with_service_provider.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -29,6 +29,12 @@ class SignInView extends StatefulWidget {
 class _SignInViewState extends State<SignInView> {
   final _formkey = GlobalKey<FormState>();
   final loginViewModel = Get.put(LoginViewModel());
+
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+    loginViewModel.onContinueButtonPressed();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,70 +63,22 @@ class _SignInViewState extends State<SignInView> {
                     key: _formkey,
                     child: Column(
                       children: [
-                        SizedBox(height: Get.height - (Get.height - 70)),
+                        SizedBox(height: Get.height - (Get.height - 90)),
                         InputEmailWidget(),
-                        SizedBox(height: Get.height - (Get.height - 14)),
-                        if (loginViewModel.isButtonPressed.value)
-                          Column(
-                            children: [
-                              InputPasswordWidget(),
-                              SizedBox(height: Get.height - (Get.height - 20)),
-                              const RememberMeWidget(),
-                            ],
-                          ),
+                        InputPasswordWidget(),
+                        const RememberMeWidget(),
                         SizedBox(height: Get.height - (Get.height - 20)),
-                        SignInButtonWidget(),
-                        // Container(
-                        //   width: double.infinity,
-                        //   height: Get.height - (Get.height - 50),
-                        //   padding: EdgeInsets.symmetric(
-                        //       horizontal: Get.width - (Get.width - 30)),
-                        //   foregroundDecoration: BoxDecoration(
-                        //       borderRadius:
-                        //           ThemeConstants.defaultBorderRadius),
-                        //   child: ElevatedButton(
-                        //     onPressed: () =>
-                        //         loginViewModel.onContinueButtonPressed(),
-                        //     style: Theme.of(context)
-                        //         .elevatedButtonTheme
-                        //         .style,
-                        //     child: Text(loginViewModel.buttonText.value),
-                        //   ),
-                        // ),
-                        SizedBox(height: Get.height - (Get.height - 28)),
+                        ContinueButtonWidget(
+                          formKey: _formkey,
+                        ),
+                        SignInButtonWidget(
+                          formKey: _formkey,
+                        ),
                         DividerOrTextWidget(),
                         SizedBox(height: Get.height - (Get.height - 20)),
-                        SignInWithGoogleButton(
-                            width: Get.width - (Get.width - 300),
-                            buttonColor:
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? AppColor.buttonBg1Dark
-                                    : AppColor.buttonBg1Light,
-                            title: 'sign_in_with_google'.tr,
-                            onPress: () {
-                              loginViewModel.onGoogleSignInButtonPressed();
-                            }),
+                        SignInWithGoogleButton(),
                         SizedBox(height: Get.height - (Get.height - 20)),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              CustomTextButton(
-                                  title: 'sign_in_text_button'.tr,
-                                  textAlignment: Alignment.centerLeft,
-                                  textDecoration: TextDecoration.underline,
-                                  onPress:
-                                      loginViewModel.onSignInButtonPressed),
-                              SizedBox(width: Get.width - (Get.width - 5)),
-                              Text(
-                                'sign_in_text'.tr,
-                                style: Theme.of(context).textTheme.bodyLarge,
-                              ),
-                            ],
-                          ),
-                        ),
+                        SignInWithServiceProviderWidget(),
                         SizedBox(height: Get.height - (Get.height - 20)),
                         ForgotPasswordWidget(),
                         SizedBox(height: Get.height - (Get.height - 10)),
@@ -130,58 +88,6 @@ class _SignInViewState extends State<SignInView> {
                         SizedBox(height: Get.height - (Get.height - 10)),
                         SignInWithDifferentAccWidget(),
                         SizedBox(height: Get.height - (Get.height - 30)),
-                        // Column(
-                        //   crossAxisAlignment: CrossAxisAlignment.start,
-                        //   mainAxisSize: MainAxisSize.min,
-                        //   children: [
-                        //     Row(
-                        //       mainAxisAlignment: MainAxisAlignment.center,
-                        //       mainAxisSize: MainAxisSize.min,
-                        //       children: [
-                        //         CustomTextButton(
-                        //             title: 'sign_in_text_button'.tr,
-                        //             onPress:
-                        //                 loginViewModel.onSignInButtonPressed),
-                        //         Text(
-                        //           'sign_in_text'.tr,
-                        //           style: Theme.of(context).textTheme.bodyLarge,
-                        //         ),
-                        //       ],
-                        //     ),
-                        //     // SizedBox(height: Get.height - (Get.height - 30)),
-                        //     CustomTextButton(
-                        //         title: 'forgot_username'.tr,
-                        //         onPress: loginViewModel
-                        //             .onForgotUsernameButtonPressed),
-                        //     // SizedBox(height: Get.height - (Get.height - 12)),
-                        //     CustomTextButton(
-                        //         title: 'one_time_passwordButton'.tr,
-                        //         onPress: loginViewModel
-                        //             .onRequestOneTimePasswordButtonPressed),
-                        //     // SizedBox(height: Get.height - (Get.height - 12)),
-                        //     if (!loginViewModel.isButtonPressed.value)
-                        //       Row(
-                        //         mainAxisAlignment: MainAxisAlignment.center,
-                        //         mainAxisSize: MainAxisSize.min,
-                        //         children: [
-                        //           Text(
-                        //             'new_user_text'.tr,
-                        //             style:
-                        //                 Theme.of(context).textTheme.bodyLarge,
-                        //           ),
-                        //           CustomTextButton(
-                        //               title: 'create_account'.tr,
-                        //               onPress: loginViewModel
-                        //                   .onCreateAccountButtonPressed),
-                        //         ],
-                        //       ),
-                        //     if (loginViewModel.isButtonPressed.value)
-                        //       CustomTextButton(
-                        //           title: 'different_account'.tr,
-                        //           onPress:
-                        //               loginViewModel.onSignInWithDifferentAcc)
-                        //   ],
-                        // ),
                       ],
                     ),
                   ),

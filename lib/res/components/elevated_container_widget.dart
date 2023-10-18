@@ -14,9 +14,10 @@ class ElevatedContainer extends StatelessWidget {
       margin: ThemeConstants.defaultmargin,
       // padding: ThemeConstants.mediumPadding,
       decoration: BoxDecoration(
-          borderRadius: ThemeConstants.largeBorderRadius,
-          boxShadow: const [ThemeConstants.boxShadow],
-          color: AppColor.bg3Light),
+        borderRadius: ThemeConstants.largeBorderRadius,
+        boxShadow: const [ThemeConstants.boxShadow],
+        color: AppColor.bg3Light,
+      ),
       child: child,
     );
   }

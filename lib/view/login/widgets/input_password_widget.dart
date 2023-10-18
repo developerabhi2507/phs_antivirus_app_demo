@@ -12,29 +12,40 @@ class InputPasswordWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      controller: loginViewModel.passwordController.value,
-      focusNode: loginViewModel.passwordFocusNode.value,
-      style: Theme.of(context).textTheme.bodyLarge,
-      validator: (value) {
-        if (value!.isEmpty) {
-          Utils.snackBar('Password', 'Enter Password');
-        }
-        return null;
-      },
-      onFieldSubmitted: (value) {},
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.zero,
-        labelText: 'password_label'.tr,
-        labelStyle: Theme.of(context).textTheme.bodyLarge,
-        border: const UnderlineInputBorder(),
-        enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: AppColor.border1),
-        ),
-        focusedBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: AppColor.border1),
-        ),
-      ),
-    );
+    return Obx(() {
+      if (loginViewModel.isSignInButtonPressed.value) {
+        return Column(
+          children: [
+            SizedBox(height: Get.height - (Get.height - 14)),
+            TextFormField(
+              controller: loginViewModel.passwordController.value,
+              focusNode: loginViewModel.passwordFocusNode.value,
+              style: Theme.of(context).textTheme.bodyLarge,
+              validator: (value) {
+                if (value!.isEmpty) {
+                  Utils.snackBar('Password', 'Enter Password');
+                }
+                return null;
+              },
+              onFieldSubmitted: (value) {},
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.zero,
+                labelText: 'password_label'.tr,
+                labelStyle: Theme.of(context).textTheme.bodyLarge,
+                border: const UnderlineInputBorder(),
+                enabledBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: AppColor.border1),
+                ),
+                focusedBorder: const UnderlineInputBorder(
+                  borderSide: BorderSide(color: AppColor.border1),
+                ),
+              ),
+            ),
+          ],
+        );
+      } else {
+        return const SizedBox.shrink();
+      }
+    });
   }
 }
