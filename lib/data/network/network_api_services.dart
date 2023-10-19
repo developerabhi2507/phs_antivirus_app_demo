@@ -34,7 +34,7 @@ class NetworkApiServices extends BaseApiServices {
     try {
       final response = await dio
           .post(url,
-              data: jsonEncode(data),
+              data: data,
               options: Options(method: 'POST', headers: AppUrl.headers))
           .timeout(const Duration(seconds: 10));
       responseJson = returnResponse(response);
